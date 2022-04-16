@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "caa639bc-93e5-43ce-b00f-c8939939df57": {
+      "ProjectGuid": "caa639bc-93e5-43ce-b00f-c8939939df57",
+      "DisplayName": "ExampleWebApp",
+      "ColorIndex": 0
+    },
+    "9175d7da-99b0-43de-8819-1c1602d2cd04": {
+      "ProjectGuid": "9175d7da-99b0-43de-8819-1c1602d2cd04",
+      "DisplayName": "Core",
+      "ColorIndex": 1
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 2
+}
