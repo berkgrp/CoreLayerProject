@@ -1,0 +1,41 @@
+﻿@model ScoreTableViewModel
+
+@{
+    ViewData["Title"] = "ScoreTable-Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<h2>Skorlar</h2>
+<table class="table">
+    <tr>
+        <th>İşlemler</th>
+        <th>ID</th>
+        <th>Kullanıcı Adı</th>
+        <th>Skoru</th>
+        <th>Oynadığı Tarih</th>
+    </tr>
+    @foreach (var item in Model.ScoreTables)
+    {
+
+        <tr>
+            <td>
+                <a asp-action="DeleteScore" asp-route-id="@item.ScoreTableID">Sil</a>
+            </td>
+            <td>@item.ScoreTableID</td>
+            <td>@item.User.UserName</td>
+            <td>@item.ScoreData</td>
+            <td>@item.CreatedDate</td>
+        </tr>
+    }
+</table>
+
+
+<div>
+    <a asp-action="Index">Anasayfa</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

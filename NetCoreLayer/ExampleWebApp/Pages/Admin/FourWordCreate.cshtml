@@ -1,0 +1,47 @@
+@model FourWordViewModel
+
+@{
+    ViewData["Title"] = "Create-Four";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h4>4 Harfli Kelime Oluþtur</h4>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="PostFourWord">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FourWord.FourWordQuestion" class="control-label">Soru</label>
+                <input asp-for="FourWord.FourWordQuestion" class="form-control" />
+                <span asp-validation-for="FourWord.FourWordQuestion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FourWord.FourWordAnswer" class="control-label">Cevap</label>
+                <input asp-for="FourWord.FourWordAnswer" class="form-control" />
+                <span asp-validation-for="FourWord.FourWordAnswer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FourWord.FourWordData" class="control-label">Cevap Kontrol</label>
+                <input asp-for="FourWord.FourWordData" class="form-control" />
+                <span asp-validation-for="FourWord.FourWordData" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FourWord.FourWordScore" class="control-label">Skor</label>
+                <input asp-for="FourWord.FourWordScore" class="form-control" />
+                <span asp-validation-for="FourWord.FourWordScore" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="PostFourWord" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Anasayfa</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

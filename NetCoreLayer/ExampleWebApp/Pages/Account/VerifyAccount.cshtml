@@ -1,0 +1,21 @@
+﻿@*@{
+    ViewData["Title"] = "Verify Account";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+
+<h1>Verify Account</h1>
+
+<h4>User</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="VerifyAccount">
+            <input id="Email" name="Email" type="hidden">
+            <input id="Token" name="Token" type="hidden">
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}*@

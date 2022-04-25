@@ -1,0 +1,57 @@
+﻿@model UserViewModel
+
+@{
+    ViewData["Title"] = "Update-Four";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Four</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="UpdateUsers">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @foreach (var item in Model.UserUpdate)
+            {
+                <input asp-for="@item.UserID" type="hidden"  name="UserID" value="@item.UserID" />
+                <input asp-for="@item.UserRoleID" type="hidden" name="UserRoleID" value="@item.UserRoleID" />
+                <input asp-for="@item.UserToken" type="hidden" name="UserToken" value="@item.UserToken" />
+                <input asp-for="@item.UserLastScore" type="hidden" name="UserLastScore" value="@item.UserLastScore" />
+                <input asp-for="@item.UserIsActive" type="hidden" name="UserIsActive" value="@item.UserIsActive" />
+                <input asp-for="@item.UserIsEmailConfirmed" type="hidden" name="UserIsEmailConfirmed" value="@item.UserIsEmailConfirmed" />
+                <div class="form-group">
+                    <label asp-for="@item.UserName" class="control-label"></label>
+                    <input asp-for="@item.UserName" name="UserName" value="@item.UserName" class="form-control" />
+                    <span asp-validation-for="@item.UserName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@item.UserSurname" class="control-label"></label>
+                    <input asp-for="@item.UserSurname" name="UserSurname" value="@item.UserSurname" class="form-control" />
+                    <span asp-validation-for="@item.UserSurname" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@item.UserEMail" class="control-label"></label>
+                    <input asp-for="@item.UserEMail" name="UserEMail" value="@item.UserEMail" class="form-control" />
+                    <span asp-validation-for="@item.UserEMail" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@item.UserPassword" class="control-label"></label>
+                    <input asp-for="@item.UserPassword"  name="UserPassword" value="@item.UserPassword" class="form-control" />
+                    <span asp-validation-for="@item.UserPassword" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="UpdateUsers" class="btn btn-primary" />
+                </div>
+            }
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Anasayfa</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

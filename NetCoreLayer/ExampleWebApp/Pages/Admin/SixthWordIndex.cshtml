@@ -1,0 +1,46 @@
+﻿@model SixthWordViewModel
+
+@{
+    ViewData["Title"] = "Index-Sixth";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<a href="@Url.Action("SixWordCreate","Admin")">Kelime Ekle</a>
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<h2>6 HARFLİ CEVAPLAR</h2>
+<table class="table">
+    <tr>
+        <th>İşlemler</th>
+        <th>ID</th>
+        <th>SORU</th>
+        <th>CEVAP</th>
+        <th>CEVAP KONTROL</th>
+        <th>PUAN</th>
+    </tr>
+    @foreach (var item in Model.SixthWords)
+    {
+
+<tr>
+    <td>
+        <a asp-action="UpdateSixWord" asp-route-id="@item.SixthWordID">Güncelle</a>
+        <form asp-action="DeleteSixWord">
+            <div>
+                <input name="sixthWordID" type="hidden" value="@item.SixthWordID" />
+                <input type="submit" name="sixthWordID" value="Sil" class="btn btn-primary" />
+            </div>
+        </form>
+    </td>
+    <td>@item.SixthWordID</td>
+    <td>@item.SixthWordQuestion</td>
+    <td>@item.SixthWordAnswer</td>
+    <td>@item.SixthWordData</td>
+    <td>@item.SixthWordScore</td>
+</tr>
+    }
+</table>
+<div>
+    <a asp-action="Index">Anasayfa</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

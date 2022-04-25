@@ -1,50 +1,102 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ExampleWebApp</title>
+    <title>@ViewData["Title"] - WebKelimeOyunu</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <!-- SWEET ALERT CSS -->
+    <link href="~/sweetalerts/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/sweetalerts/sweetalert.css" rel="stylesheet" type="text/css" />
+    <!-- SWEET ALERT CSS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        .center {
+            text-align: center;
+            left: 45%;
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+        ul {
+            border-left: 3px solid red;
+            background-color: #f1f1f1;
+            list-style-type: none;
+            padding: 10px 20px;
+        }
+
+        table, th, td {
+            border: 1px solid gray;
+        }
+
+        a:hover, a:active {
+            background-color: darkorange;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">ExampleWebApp</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <partial name="~/Views/Shared/_AdminNavbar.cshtml" />
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - ExampleWebApp - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            &copy; 2021 - WebKelimeOyunu - Berk Garip <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-
+    <script src="~/sweetalerts/sweetalert2.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
+    <!--SUCCESS SWEET ALERT JS-->
+    <script>
+    function showSuccess() {
+        swal({
+            type: 'success',
+            title: 'Tebrikler!',
+            html: '@TempData["Message"]'
+        })
+    }
+    window.onload = function () {
+        @TempData["JS"]
+    };
+    </script>
+    <!--SUCCESS SWEET ALERT JS-->
+    <!--ERROR SWEET ALERT JS-->
+    <script>
+    function showError() {
+        swal({
+            type: 'error',
+            title: 'Oops...',
+            html: '@TempData["Message"]'
+        })
+    }
+    window.onload = function () {
+        @TempData["JS"]
+    };
+    </script>
+    <script>
+        var firstUpload = new FileUploadWithPreview('ProductPhotoUpdate')
+    </script>
+    <!--SUCCESS SWEET ALERT JS-->
+    <!--ERROR SWEET ALERT JS-->
 </body>
 </html>

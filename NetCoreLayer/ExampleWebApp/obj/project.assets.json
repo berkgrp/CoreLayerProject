@@ -736,19 +736,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Administrator\\.nuget\\packages\\": {}
+    "C:\\Users\\Eda GARİP\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\source\\repos\\NetCoreLayer\\ExampleWebApp\\ExampleWebApp.csproj",
+      "projectUniqueName": "C:\\Users\\Eda GARİP\\Documents\\GitHub\\CoreLayerProject\\NetCoreLayer\\ExampleWebApp\\ExampleWebApp.csproj",
       "projectName": "ExampleWebApp",
-      "projectPath": "C:\\Users\\Administrator\\source\\repos\\NetCoreLayer\\ExampleWebApp\\ExampleWebApp.csproj",
-      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrator\\source\\repos\\NetCoreLayer\\ExampleWebApp\\obj\\",
+      "projectPath": "C:\\Users\\Eda GARİP\\Documents\\GitHub\\CoreLayerProject\\NetCoreLayer\\ExampleWebApp\\ExampleWebApp.csproj",
+      "packagesPath": "C:\\Users\\Eda GARİP\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Eda GARİP\\Documents\\GitHub\\CoreLayerProject\\NetCoreLayer\\ExampleWebApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Eda GARİP\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -789,12 +789,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[5.0.12, 5.0.12]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -803,7 +797,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

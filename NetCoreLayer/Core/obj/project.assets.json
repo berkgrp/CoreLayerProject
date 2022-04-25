@@ -518,19 +518,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Administrator\\.nuget\\packages\\": {}
+    "C:\\Users\\Eda GARİP\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\source\\repos\\NetCoreLayer\\Core\\Core.csproj",
+      "projectUniqueName": "C:\\Users\\Eda GARİP\\Documents\\GitHub\\CoreLayerProject\\NetCoreLayer\\Core\\Core.csproj",
       "projectName": "Core",
-      "projectPath": "C:\\Users\\Administrator\\source\\repos\\NetCoreLayer\\Core\\Core.csproj",
-      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrator\\source\\repos\\NetCoreLayer\\Core\\obj\\",
+      "projectPath": "C:\\Users\\Eda GARİP\\Documents\\GitHub\\CoreLayerProject\\NetCoreLayer\\Core\\Core.csproj",
+      "packagesPath": "C:\\Users\\Eda GARİP\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Eda GARİP\\Documents\\GitHub\\CoreLayerProject\\NetCoreLayer\\Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Eda GARİP\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -604,7 +604,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

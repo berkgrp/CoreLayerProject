@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebKelimeOyunu</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <!-- SWEET ALERT CSS -->
+    <link href="~/sweetalerts/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/sweetalerts/sweetalert.css" rel="stylesheet" type="text/css" />
+    <!-- SWEET ALERT CSS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+        ul {
+            border-left: 3px solid red;
+            background-color: #f1f1f1;
+            list-style-type: none;
+            padding: 10px 20px;
+        }
+
+        table, th, td {
+            border: 1px solid gray;
+        }
+
+        a:hover, a:active {
+            background-color: darkorange;
+        }
+    </style>
+</head>
+<body>
+    <partial name="~/Views/Shared/_AccountNavbar.cshtml" />
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - WebKelimeOyunu - Berk Garip <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/sweetalerts/sweetalert2.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    <!--SUCCESS SWEET ALERT JS-->
+    <!--ERROR SWEET ALERT JS-->
+    <script>
+        function showControllerSuccess() {
+            swal({
+                type: 'success',
+                title: 'İşlem Başarılı !',
+                html: '@ViewBag.Message'
+            })
+        }
+        function showControllerError() {
+            swal({
+                type: 'error',
+                title: 'İşlem Başarısız !',
+                html: '@ViewBag.Message'
+            })
+        }
+        function showError(message) {
+            swal({
+                type: 'error',
+                title: 'İşlem Başarısız !',
+                html: message
+            })
+        }
+        window.onload = function () {
+            @ViewBag.JS
+        };
+    </script>
+    <!--ERROR SWEET ALERT JS-->
+    <!--SUCCESS SWEET ALERT JS-->
+    <script>
+        var firstUpload = new FileUploadWithPreview('ProductPhotoUpdate')
+    </script>
+    <script>
+    function showSuccess() {
+        swal({
+            type: 'success',
+            title: 'Tebrikler!',
+            html: '@TempData["Message"]'
+        })
+    }
+    window.onload = function () {
+        @TempData["JS"]
+    };
+    </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+﻿@model UserViewModel;
+
+@{
+    ViewData["Title"] = "Users";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Kullanıcılar</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Adı
+            </th>
+            <th>
+                Soyadı
+            </th>
+            <th>
+                Şifresi
+            </th>
+            <th>
+                E-mail Adresi
+            </th>
+            <th>
+                Son Skoru
+            </th>
+            <th>
+                Kullanıcı Aktif mi?
+            </th>
+            <th>
+                Kullanıcı Doğrulama  Yapmış mı?
+            </th>
+            <th>
+                Kullanıcı Rolü
+            </th>
+            <th>
+                Kayıt Tarihi
+            </th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.AllUsers)
+        {
+        <tr>
+            <td>
+                @item.UserName
+            </td>
+            <td>
+                @item.UserSurname
+            </td>
+            <td>
+                @item.UserPassword
+            </td>
+            <td>
+                @item.UserEMail
+            </td>
+            <td>
+                @item.UserLastScore
+            </td>
+            @if (@item.UserIsActive == true)
+            {
+                <td>Aktif</td>
+            }
+            else
+            {
+                <td>Pasif</td>
+            }
+            <td>
+                @Html.DisplayFor(modelItem => item.UserIsEmailConfirmed)
+            </td>
+            @if (@item.UserRoleID == 1)
+            {
+                <td>Admin</td>
+            }
+            else
+            {
+                <td>Oyuncu</td>
+            }
+            <td>
+              @item.CreatedDate
+            </td>
+            <td>
+                <form asp-action="UsersUpdateIndex">
+                    <div>
+                        <input name="ID" type="hidden" value="@item.UserID">
+                        <input type="submit" value="Güncelle" class="btn btn-primary" />
+                    </div>
+                </form>
+                <form asp-action="DeleteUserByID">
+                    <div>
+                        <input name="ID" type="hidden" value="@item.UserID">
+                        <input type="submit" value="Sil" class="btn btn-primary" />
+                    </div>
+                </form>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,53 @@
+@model SixthWordViewModel
+
+@{
+    ViewData["Title"] = "Update-Sixth";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Sixth</h1>
+
+<h4>SixthWord</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="UpdateSixthWord">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @foreach(var item in Model.SixthWordsOnly)
+            {
+            <input asp-for="@item.SixthWordID" type="hidden" value="@item.SixthWordID" />
+            <div class="form-group">
+                <label asp-for="@item.SixthWordQuestion" class="control-label"></label>
+                <input asp-for="@item.SixthWordQuestion" name="SixthWordQuestion" value="@item.SixthWordQuestion" class="form-control" />
+                <span asp-validation-for="@item.SixthWordQuestion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@item.SixthWordAnswer" class="control-label"></label>
+                <input asp-for="@item.SixthWordAnswer" name="SixthWordAnswer" value="@item.SixthWordAnswer" class="form-control" />
+                <span asp-validation-for="SixthWord.SixthWordAnswer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@item.SixthWordData" class="control-label"></label>
+                <input asp-for="@item.SixthWordData" name="SixthWordData" value="@item.SixthWordData" class="form-control" />
+                <span asp-validation-for="SixthWord.SixthWordData" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@item.SixthWordScore" class="control-label"></label>
+                <input asp-for="@item.SixthWordScore" name="SixthWordScore" value="@item.SixthWordScore" class="form-control" />
+                <span asp-validation-for="@item.SixthWordScore" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="UpdateSixthWord" class="btn btn-primary" />
+            </div>
+            }
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Anasayfa</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

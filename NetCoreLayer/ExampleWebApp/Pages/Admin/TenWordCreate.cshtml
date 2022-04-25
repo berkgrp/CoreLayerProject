@@ -1,0 +1,46 @@
+﻿@model TenWordViewModel
+
+@{
+    ViewData["Title"] = "Create-Ten";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>10 Harfli Kelime Oluştur</h4>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="PostTenWord">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TenWord.TenWordQuestion" class="control-label">Soru</label>
+                <input asp-for="TenWord.TenWordQuestion" class="form-control" />
+                <span asp-validation-for="TenWord.TenWordQuestion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TenWord.TenWordAnswer" class="control-label">Cevap</label>
+                <input asp-for="TenWord.TenWordAnswer" class="form-control" />
+                <span asp-validation-for="TenWord.TenWordAnswer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TenWord.TenWordData" class="control-label">Cevap Kontrol</label>
+                <input asp-for="TenWord.TenWordData" class="form-control" />
+                <span asp-validation-for="TenWord.TenWordData" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TenWord.TenWordScore" class="control-label">Skor</label>
+                <input asp-for="TenWord.TenWordScore" class="form-control" />
+                <span asp-validation-for="TenWord.TenWordScore" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="PostTenWord" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Anasayfa</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

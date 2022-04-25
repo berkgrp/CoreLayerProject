@@ -1,0 +1,48 @@
+﻿@model TenWordViewModel
+
+@{
+    ViewData["Title"] = "Index-Ten";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<a href="@Url.Action("TenWordCreate","Admin")">Kelime Ekle</a>
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<h2>10 HARFLİ CEVAPLAR</h2>
+<table class="table">
+    <tr>
+        <th>İşlemler</th>
+        <th>ID</th>
+        <th>SORU</th>
+        <th>CEVAP</th>
+        <th>CEVAP KONTROL</th>
+        <th>PUAN</th>
+    </tr>
+    @foreach (var item in Model.TenWords)
+    {
+<tr>
+    <td>
+        <a asp-action="UpdateTenWord" asp-route-id="@item.TenWordID">Güncelle</a>
+        <form asp-action="DeleteTenWord">
+            <div>
+                <input name="tenWordID" type="hidden" value="@item.TenWordID" />
+                <input type="submit" name="tenWordID" value="Sil" class="btn btn-primary" />
+            </div>
+        </form>
+    </td>
+    <td>@item.TenWordID</td>
+    <td>@item.TenWordQuestion</td>
+    <td>@item.TenWordAnswer</td>
+    <td>@item.TenWordData</td>
+    <td>@item.TenWordScore</td>
+</tr>
+    }
+</table>
+
+
+<div>
+    <a asp-action="Index">Anasayfa</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

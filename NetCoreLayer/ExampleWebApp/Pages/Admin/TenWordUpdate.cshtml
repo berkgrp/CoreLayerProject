@@ -1,0 +1,50 @@
+﻿@model TenWordViewModel
+
+@{
+    ViewData["Title"] = "Update-Ten";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Ten</h1>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="UpdateTenWord">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @foreach (var item in Model.TenWordOnly)
+            {
+                <input asp-for="@item.TenWordID" type="hidden" value="@item.TenWordID" />
+                <div class="form-group">
+                    <label asp-for="@item.TenWordQuestion" class="control-label"></label>
+                    <input asp-for="@item.TenWordQuestion" name="TenWordQuestion" value="@item.TenWordQuestion" class="form-control" />
+                    <span asp-validation-for="@item.TenWordQuestion" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@item.TenWordAnswer" class="control-label"></label>
+                    <input asp-for="@item.TenWordAnswer" name="TenWordAnswer" value="@item.TenWordAnswer" class="form-control" />
+                    <span asp-validation-for="@item.TenWordAnswer" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@item.TenWordData" class="control-label"></label>
+                    <input asp-for="@item.TenWordData" name="TenWordData" value="@item.TenWordData" class="form-control" />
+                    <span asp-validation-for="@item.TenWordData" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@item.TenWordScore" class="control-label"></label>
+                    <input asp-for="@item.TenWordScore" name="TenWordScore" value="@item.TenWordScore" class="form-control" />
+                    <span asp-validation-for="@item.TenWordScore" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="UpdateTenWord" class="btn btn-primary" />
+                </div>
+            }
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Anasayfa</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,46 @@
+@model FiveWordViewModel
+
+@{
+    ViewData["Title"] = "Create-Five";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>4 Harfli Kelime Oluþtur</h4>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="PostFiveWord">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FifthWord.FifthWordQuestion" class="control-label">Soru</label>
+                <input asp-for="FifthWord.FifthWordQuestion" class="form-control" />
+                <span asp-validation-for="FifthWord.FifthWordQuestion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FifthWord.FifthWordAnswer" class="control-label">Cevap</label>
+                <input asp-for="FifthWord.FifthWordAnswer" class="form-control" />
+                <span asp-validation-for="FifthWord.FifthWordAnswer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FifthWord.FifthWordData" class="control-label">Cevap Kontrol</label>
+                <input asp-for="FifthWord.FifthWordData" class="form-control" />
+                <span asp-validation-for="FifthWord.FifthWordData" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FifthWord.FifthWordScore" class="control-label">Skor</label>
+                <input asp-for="FifthWord.FifthWordScore" class="form-control" />
+                <span asp-validation-for="FifthWord.FifthWordScore" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="PostFifthWord" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Anasayfa</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,48 @@
+﻿@model SevenWordViewModel
+
+@{
+    ViewData["Title"] = "Index-Seven";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<a href="@Url.Action("SevenWordCreate","Admin")">Kelime Ekle</a>
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<h2>7 HARFLİ CEVAPLAR</h2>
+<table class="table">
+    <tr>
+        <th>İşlemler</th>
+        <th>ID</th>
+        <th>SORU</th>
+        <th>CEVAP</th>
+        <th>CEVAP KONTROL</th>
+        <th>PUAN</th>
+    </tr>
+    @foreach (var item in Model.SevenWords)
+    {
+
+<tr>
+    <td>
+        <a asp-action="UpdateSevenWord" asp-route-id="@item.SevenWordID">Güncelle</a>
+        <form asp-action="DeleteSevenWord">
+            <div>
+                <input name="sevenWordID" type="hidden" value="@item.SevenWordID" />
+                <input type="submit" name="sevenWordID" value="Sil" class="btn btn-primary" />
+            </div>
+        </form>
+    </td>
+    <td>@item.SevenWordID</td>
+    <td>@item.SevenWordQuestion</td>
+    <td>@item.SevenWordAnswer</td>
+    <td>@item.SevenWordData</td>
+    <td>@item.SevenWordScore</td>
+</tr>
+    }
+</table>
+
+<div>
+    <a asp-action="Index">Anasayfa</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

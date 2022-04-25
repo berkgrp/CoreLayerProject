@@ -1,0 +1,46 @@
+﻿@model NineWordViewModel
+
+@{
+    ViewData["Title"] = "Index-Nine";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<a href="@Url.Action("NineWordCreate","Admin")">Kelime Ekle</a>
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<h2>9 HARFLİ CEVAPLAR</h2>
+<table class="table">
+    <tr>
+        <th>İşlemler</th>
+        <th>ID</th>
+        <th>SORU</th>
+        <th>CEVAP</th>
+        <th>CEVAP KONTROL</th>
+        <th>PUAN</th>
+    </tr>
+    @foreach (var item in Model.NineWords)
+    {
+<tr>
+    <td>
+        <a asp-action="UpdateNineWord" asp-route-id="@item.NineWordID">Güncelle</a>
+        <form asp-action="DeleteNineWord">
+            <div>
+                <input name="nineWordID" type="hidden" value="@item.NineWordID" />
+                <input type="submit" name="nineWordID" value="Sil" class="btn btn-primary" />
+            </div>
+        </form>
+    </td>
+    <td>@item.NineWordID</td>
+    <td>@item.NineWordQuestion</td>
+    <td>@item.NineWordAnswer</td>
+    <td>@item.NineWordData</td>
+    <td>@item.NineWordScore</td>
+</tr>
+    }
+</table>
+
+<div>
+    <a asp-action="Index">Anasayfa</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

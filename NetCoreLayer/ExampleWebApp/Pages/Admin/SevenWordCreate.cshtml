@@ -1,0 +1,47 @@
+@model SevenWordViewModel
+
+@{
+    ViewData["Title"] = "Create-Seven";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h4>7 Harfli Kelime Oluþtur</h4>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="PostSevenWord">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SevenWord.SevenWordQuestion" class="control-label">Soru</label>
+                <input asp-for="SevenWord.SevenWordQuestion" class="form-control" />
+                <span asp-validation-for="SevenWord.SevenWordQuestion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SevenWord.SevenWordAnswer" class="control-label">Cevap</label>
+                <input asp-for="SevenWord.SevenWordAnswer" class="form-control" />
+                <span asp-validation-for="SevenWord.SevenWordAnswer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SevenWord.SevenWordData" class="control-label">Cevap Kontrol</label>
+                <input asp-for="SevenWord.SevenWordData" class="form-control" />
+                <span asp-validation-for="SevenWord.SevenWordData" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SevenWord.SevenWordScore" class="control-label">Skor</label>
+                <input asp-for="SevenWord.SevenWordScore" class="form-control" />
+                <span asp-validation-for="SevenWord.SevenWordScore" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="PostSevenWord" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Anasayfa</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
